@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+                <title>Welcome To My Page </title>
+
+                  <!-- load angular via CDN -->
+
+                <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+
+                <script src="app.js"></script>
+
+               
+
+                <!-- load bootstrap and fontawesome via CDN -->
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+        <style>
+
+            html, body, input, select, textarea
+
+            {
+
+                font-size: 1.05em;
+
+            }
+
+        </style>
+
+<body>
+
+                <div> <h1><b>Please select the below list for Category and Country </b></h1></div>
+
+     
+
+                    <!--form  id="Categorylist" id="CountryList" ng-submit="submitForm()"--->
+                    <input type="hidden" id="api-key" value="47c7ca74edd44ad786fc304d3222c3a9">
+
+    <div ng-if="details.Response==='True'">
+        <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" class="container">
+          <span class="span-outer">
+          <a href="http://newsapi.org/v2/sources?apiKey=47c7ca74edd44ad786fc304d3222c3a9{{ details.country }}" target="_blank">{{ details.country }}
+              </a>
+        </span>, {{ details.country}}
+        
+         <p><strong>Please look at news of :</strong>{{ details.id }}</p>
+         <div ng-if="details.Response==='False'">
+        No results found.
+      </div>
+
+        
+<br>
+
+<div class="container"  ng-controller="mainController" ng-app="myApp">
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+
+        <a class="navbar-brand" href="#"><b>Watch for more News below </b> <span class="span-style"></span></a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</div>
+
+   
+
+       
+
+<label for="Category" >Choose Category:</label>
+
+<select id="Categorylist" ng-model="News.Categorylist">
+
+  <option value="default">-</option>
+
+  <option value="business">Business</option>
+
+  <option value="entertainment">Entertainment</option>
+
+  <option value="health">Health</option>
+
+  <option value="general">General</option>
+
+  <option value="science">Science</option>
+
+  <option value="sports">Sports</option>
+
+  <option value="technology">Technology</option>
+
+</select>
+
+<br /> <br />
+
+<label for="Country">Choose Country:</label>
+
+<select id="CountryList" ng-model="News.CountryList">
+
+<option value="default"> </option>
+
+  <option value="in">India</option>
+
+  <option value="de">Germany</option>
+
+  <option value="us">USA</option>
+
+  <option value="au">Australia</option>
+
+</select>
+
+</body>
+
+    </head>
+
+        </html>
